@@ -48,21 +48,20 @@ public class Game extends Canvas implements Runnable {
 			render();
 			frames++;
 
-			if (System.currentTimeMillis() - timer > 1000){
-
+			if (System.currentTimeMillis() - timer > 1000) {
 				frames = 0;
 			}
 		}
-	stop();
+		stop();
 	}
 
-	public void tick(){
+	public void tick() {
 
 	}
 
-	public void render(){
+	public void render() {
 		BufferStrategy bs = this.getBufferStrategy();
-		if (bs == null){
+		if (bs == null) {
 			this.createBufferStrategy(3);
 			return;
 		}
@@ -70,14 +69,14 @@ public class Game extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		/////////
 
-		g.setColor(Color.black);
-		g.fillRect(0,0,1000,563);
+		g.setColor(Color.white);
+		g.fillRect(0, 0, 1000, 563);
 
-		////////hej
+		////////
+
 		g.dispose();
 		bs.show();
 	}
-
 
 	public static void main(String[] args) {
 
