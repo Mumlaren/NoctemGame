@@ -5,11 +5,18 @@ public class Game extends Canvas implements Runnable {
 
 	private boolean isRunning = false;
 	private Thread  thread;
+	private Handler handler;
 
 	public Game() {
 
 		new Window(1000, 563, "Noctem Game", this);
 		start();
+
+		handler = new Handler();
+
+		handler.addObject(new Box(100, 100));
+
+		handler.addObject(new Box(30,30));
 	}
 
 	private void start() {
@@ -29,12 +36,14 @@ public class Game extends Canvas implements Runnable {
 
 	public void run() {
 		this.requestFocus();
-		long   lastTime      = System.nanoTime();
-		double amountOFTicks = 60.0;
-		double ns            = 1000000000;
-		double delta         = 0;
-		long   timer         = System.currentTimeMillis();
-		int    frames        = 0;
+
+		long lastTime = System.nanoTime();
+		double amountOfTicks = 60.0;
+		double ns = 1000000000 / amountOfTicks;
+		double delta = 0;
+		long timer = System.currentTimeMillis();
+		int frames = 0;
+		int updates = 0;
 
 		while (isRunning) {
 			long now = System.nanoTime();
@@ -43,19 +52,26 @@ public class Game extends Canvas implements Runnable {
 
 			while (delta >= 1) {
 				tick();
+				updates++;
 				delta--;
 			}
+
 			render();
 			frames++;
 
 			if (System.currentTimeMillis() - timer > 1000) {
+				timer += 1000;
+				System.out.printf("FPS: %d, TICKS: %d%n", frames, updates);
 				frames = 0;
+				updates = 0;
 			}
 		}
 		stop();
 	}
 
 	public void tick() {
+		handler.tick();
+		int tic = 0;
 
 	}
 
@@ -69,9 +85,10 @@ public class Game extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		/////////
 
-		g.setColor(Color.white);
+		g.setColor(Color.black);
 		g.fillRect(0, 0, 1000, 563);
 
+		handler.render(g);
 		////////
 
 		g.dispose();
@@ -79,7 +96,6 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public static void main(String[] args) {
-
 		new Game();
 
 	}
