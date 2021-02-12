@@ -1,9 +1,8 @@
 import java.awt.*;
 
-public abstract class Player extends GameObject {
+public class Player extends Character {
 
 	Handler handler;
-	String name;
 
 	public Player(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
