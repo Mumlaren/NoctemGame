@@ -7,12 +7,7 @@ public abstract class Ability {
 
 	protected Player      player;
 	protected AbilityType type;
-
-	public int getResourceCost() {
-		return resourceCost;
-	}
-
-	protected int    resourceCost;
+	protected int    manaCost;
 	protected int    damage;
 	private   String toolTip;
 
@@ -30,7 +25,7 @@ public abstract class Ability {
 
 	public String toString() {
 
-		String str = "Description: " + toolTip + "\nDamage: " + getDamage() + "Manacost: " + resourceCost;
+		String str = "Description: " + toolTip + "\nDamage: " + getDamage() + "Manacost: " + getManaCost();
 
 		return str;
 	}
@@ -39,8 +34,8 @@ public abstract class Ability {
 		System.out.println("__________________\n" + player.getName() + " casting ability: " + toolTip);
 	}
 
-	public void setResourceCost(int resourceCost) {
-		this.resourceCost = resourceCost;
+	public void setManaCost(int manaCost) {
+		this.manaCost = manaCost;
 	}
 
 	public int getDamage() {
@@ -49,5 +44,9 @@ public abstract class Ability {
 
 	public void setDamage(int damage) {
 		this.damage = damage;
+	}
+
+	public int getManaCost() {
+		return manaCost;
 	}
 }
