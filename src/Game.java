@@ -13,10 +13,9 @@ public class Game extends Canvas implements Runnable {
 		start();
 
 		handler = new Handler();
+		this.addKeyListener(new KeyInput(handler));
 
-		handler.addObject(new Box(100, 100));
-
-		handler.addObject(new Box(30,30));
+		handler.addObject(new Player(100, 100, ID.Player, handler));
 	}
 
 	private void start() {
@@ -37,13 +36,13 @@ public class Game extends Canvas implements Runnable {
 	public void run() {
 		this.requestFocus();
 
-		long lastTime = System.nanoTime();
+		long   lastTime      = System.nanoTime();
 		double amountOfTicks = 60.0;
-		double ns = 1000000000 / amountOfTicks;
-		double delta = 0;
-		long timer = System.currentTimeMillis();
-		int frames = 0;
-		int updates = 0;
+		double ns            = 1000000000 / amountOfTicks;
+		double delta         = 0;
+		long   timer         = System.currentTimeMillis();
+		int    frames        = 0;
+		int    updates       = 0;
 
 		while (isRunning) {
 			long now = System.nanoTime();
