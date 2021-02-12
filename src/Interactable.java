@@ -1,4 +1,3 @@
-
 public abstract class Interactable extends GameObject {
 
 	String description;

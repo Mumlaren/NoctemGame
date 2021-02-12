@@ -1,5 +1,3 @@
-import java.awt.*;
-
 public abstract class Character extends Interactable {
 
 	String    name;

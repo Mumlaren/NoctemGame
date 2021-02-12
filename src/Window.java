@@ -18,5 +18,4 @@ public class Window {
 		frame.setVisible(true);
 
 	}
-
 }

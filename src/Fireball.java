@@ -1,5 +1,5 @@
-
 public class Fireball extends Ability {
+
 
 	public Fireball(Player caster) {
 		super(caster);

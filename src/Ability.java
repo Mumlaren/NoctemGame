@@ -7,9 +7,9 @@ public abstract class Ability {
 
 	protected Player      player;
 	protected AbilityType type;
-	protected int    manaCost;
-	protected int    damage;
-	private   String toolTip;
+	protected int         manaCost;
+	protected int         damage;
+	private   String      toolTip;
 
 	public Ability(Player caster) {
 		this.player = caster;
