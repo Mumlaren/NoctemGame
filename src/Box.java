@@ -8,19 +8,16 @@ public class Box extends GameObject {
 		velX = 1;
 	}
 
-	@Override
 	public void tick() {
 		x += velX;
 		y += velY;
 	}
 
-	@Override
 	public void render(Graphics g) {
 		g.setColor(Color.white);
 		g.fillRect(x, y, 32, 32);
 	}
 
-	@Override
 	public Rectangle getBounds() {
 		return null;
 	}

@@ -7,7 +7,6 @@ public class Handler {
 
 	private boolean up = false, down = false, left = false, right = false;
 
-
 	public void tick() {
 		for (int i = 0; i < object.size(); i++) {
 			GameObject tempObject = object.get(i);
@@ -31,6 +30,7 @@ public class Handler {
 	public void removeObject(GameObject tempObject) {
 		object.remove(tempObject);
 	}
+
 	public boolean isUp() {
 		return up;
 	}

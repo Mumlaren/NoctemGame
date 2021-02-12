@@ -1,8 +1,9 @@
 import java.awt.*;
 
-public class Player extends GameObject {
+public abstract class Player extends GameObject {
 
 	Handler handler;
+	String name;
 
 	public Player(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
@@ -35,5 +36,13 @@ public class Player extends GameObject {
 
 	public Rectangle getBounds() {
 		return new Rectangle(x,y,32,48);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
