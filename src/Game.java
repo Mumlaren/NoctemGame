@@ -1,11 +1,15 @@
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 public class Game extends Canvas implements Runnable {
 
 	private boolean isRunning = false;
 	private Thread  thread;
 	private Handler handler;
+	private Camera camera;
+
+	private BufferedImage level = null;
 
 	public Game() {
 
@@ -13,9 +17,18 @@ public class Game extends Canvas implements Runnable {
 		start();
 
 		handler = new Handler();
+		camera = new Camera(0,0);
 		this.addKeyListener(new KeyInput(handler));
 
-		handler.addObject(new Mage(100, 100, ID.Player, handler));
+		BufferedImageLoader loader = new BufferedImageLoader();
+		level = loader.loadImage("/map2.png");
+
+
+		loadLevel(level);
+
+		//handler.addObject(new Mage(100, 100, ID.Player, handler));
+
+
 	}
 
 	private void start() {
@@ -69,8 +82,14 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public void tick() {
+
+		for(int i =0; i< handler.object.size(); i++){
+			if (handler.object.get(i).getId()==ID.Player)
+				camera.tick(handler.object.get(i));
+		}
+
 		handler.tick();
-		int tic = 0;
+
 
 	}
 
@@ -82,16 +101,43 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		Graphics g = bs.getDrawGraphics();
+		Graphics2D g2d = (Graphics2D) g;
 		/////////
 
 		g.setColor(Color.black);
 		g.fillRect(0, 0, 1000, 563);
 
+		g2d.translate(-camera.getX(), -camera.getY());
+
 		handler.render(g);
+
+		g2d.translate(camera.getX(), camera.getY());
 		////////
 
 		g.dispose();
 		bs.show();
+	}
+	//Loading level
+
+	private void loadLevel (BufferedImage image){
+		int w = image.getWidth();
+		int h = image.getHeight();
+
+		for(int i = 0; i < w; i++){
+			for(int j=0; j<h; j++){
+				int pixel = image.getRGB(i,j);
+				int red = (pixel >> 16) & 0xff;
+				int green = (pixel >> 8) & 0xff;
+				int blue = (pixel) & 0xff;
+
+				if (red == 255)
+					handler.addObject(new Block(i*32, j*32, ID.Block));
+
+				if (blue==255)
+					handler.addObject(new Mage(i*32, j*32, ID.Player, handler));
+			}
+		}
+
 	}
 
 	public static void main(String[] args) {

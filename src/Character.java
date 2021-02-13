@@ -5,7 +5,7 @@ public abstract class Character extends Interactable {
 	Inventory inventory;
 	int       health, mana, maxHealth, maxMana;
 
-	public enum CharState{
+	public enum CharacterState{
 		Confused,
 		Asleep,
 		Cursed
