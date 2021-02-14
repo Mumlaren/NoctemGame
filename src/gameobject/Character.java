@@ -1,3 +1,8 @@
+package gameobject;
+
+import ability.SpellBook;
+import item.*;
+
 public abstract class Character extends Interactable {
 
 	String    name;
@@ -16,7 +21,7 @@ public abstract class Character extends Interactable {
 	}
 
 	public String toString() {
-		return "Description: Character Mana:" + mana + " Health" + health;
+		return "Description: gameobject.Character Mana:" + mana + " Health" + health;
 	}
 
 	public void decreaseHealth(int value) {

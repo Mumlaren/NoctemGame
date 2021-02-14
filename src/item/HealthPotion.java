@@ -1,3 +1,6 @@
+package item;
+
+import gameobject.Player;
 
 public class HealthPotion extends Item {
 

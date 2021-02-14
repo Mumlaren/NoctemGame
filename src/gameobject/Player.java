@@ -1,3 +1,5 @@
+package gameobject;
+
 import java.awt.*;
 
 public class Player extends Character {

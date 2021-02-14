@@ -1,6 +1,11 @@
+import gameobject.Block;
+import gameobject.ID;
+import gameobject.Mage;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import gameobject.*;
 
 public class Game extends Canvas implements Runnable {
 
@@ -26,7 +31,7 @@ public class Game extends Canvas implements Runnable {
 
 		loadLevel(level);
 
-		//handler.addObject(new Mage(100, 100, ID.Player, handler));
+		//handler.addObject(new gameobject.Mage(100, 100, gameobject.ID.gameobject.Player, handler));
 
 
 	}
@@ -137,12 +142,10 @@ public class Game extends Canvas implements Runnable {
 					handler.addObject(new Mage(i*32, j*32, ID.Player, handler));
 			}
 		}
-
 	}
 
 	public static void main(String[] args) {
 		new Game();
-
 	}
 
 }

@@ -1,3 +1,8 @@
+package gameobject;
+import ability.SpellBook;
+import item.*;
+import ability.*;
+
 public class Mage extends Player {
 
 	SpellBook spellBook = new SpellBook();
@@ -6,7 +11,7 @@ public class Mage extends Player {
 	public Mage(int x, int y, ID id, Handler handler) {
 		super(x, y, id, handler);
 
-		description = "Mage, elemental caster.";
+		description = "gameobject.Mage, elemental caster.";
 
 		spellBook.addAbility(new Fireball(this));
 		spellBook.addAbility(new Fireball(this));

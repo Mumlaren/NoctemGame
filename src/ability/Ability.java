@@ -1,3 +1,8 @@
+package ability;
+
+import gameobject.GameObject;
+import gameobject.Player;
+
 public abstract class Ability {
 
 	public enum AbilityType {
@@ -31,7 +36,7 @@ public abstract class Ability {
 	}
 
 	public void cast(GameObject target) {
-		System.out.println("__________________\n" + player.getName() + " casting ability: " + toolTip);
+		System.out.println( player.getName() + " casting ability: " + toolTip);
 	}
 
 	public void setManaCost(int manaCost) {

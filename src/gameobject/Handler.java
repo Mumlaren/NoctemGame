@@ -1,9 +1,14 @@
+package gameobject;
+
+import gameobject.GameObject;
+
 import java.awt.*;
 import java.util.LinkedList;
+import gameobject.*;
 
 public class Handler {
 
-	LinkedList<GameObject> object = new LinkedList<GameObject>();
+	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 
 	private boolean up = false, down = false, left = false, right = false;
 

@@ -1,3 +1,8 @@
+package ability;
+
+import gameobject.Character;
+import gameobject.Player;
+
 public class Fireball extends Ability {
 
 
@@ -6,7 +11,7 @@ public class Fireball extends Ability {
 		type = AbilityType.Magic;
 		setManaCost(10);
 		setDamage(7);
-		setToolTip("Fireball!!!!, Type: " + type.toString());
+		setToolTip("ability.Fireball!!!!, Type: " + type.toString());
 	}
 
 	public void cast(Character target) {

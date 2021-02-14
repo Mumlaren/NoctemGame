@@ -1,3 +1,6 @@
+package item;
+
+import gameobject.Player;
 
 public abstract class Item {
 

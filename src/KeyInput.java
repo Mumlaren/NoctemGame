@@ -1,3 +1,7 @@
+import gameobject.GameObject;
+import gameobject.Handler;
+import gameobject.ID;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -30,7 +34,7 @@ public class KeyInput extends KeyAdapter {
 		for(int i =0; i <handler.object.size(); i++){
 			GameObject tempObject = handler.object.get(i);
 
-			if(tempObject.getId()==ID.Player){
+			if(tempObject.getId()== ID.Player){
 				if(key == KeyEvent.VK_W) handler.setUp(false);
 				if(key == KeyEvent.VK_S) handler.setDown(false);
 				if(key == KeyEvent.VK_A) handler.setLeft(false);

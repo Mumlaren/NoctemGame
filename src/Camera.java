@@ -1,3 +1,4 @@
+import gameobject.GameObject;
 
 public class Camera {
 
